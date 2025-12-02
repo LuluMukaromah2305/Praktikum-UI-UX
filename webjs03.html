@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Penjumlahan Sederhana</title>
+    <script>
+    function jumlahkan()
+    {
+        let bil1_string = document.getElementById("bil1").value;
+        let bil2_string = document.getElementById("bil2").value;
+        let angka1 = parseFloat(bil1_string) || 0;
+        let angka2 = parseFloat(bil2_string) || 0;
+        let total = angka1 + angka2;
+        
+        document.getElementById("hasil").innerHTML = total;
+        console.log("Bilangan 1: " + angka1);
+        console.log("Bilangan 2: " + angka2);
+        console.log("Total Hasil: " + total);
+
+    }
+    </script>
+</head>
+<body>
+    <h3>Kalkulator Penjumlahan Sederhana</h3>
+    Bilangan 1 : <input type="number" id="bil1" value="0"><br>
+    +<br>
+    Bilangan 2 : <input type="number" id="bil2" value="0"><br>
+    =<br>
+    Hasil : <span id="hasil">0</span><br>
+    <button onclick="jumlahkan()">Hitung</button>
+
+</body>
+</html>
