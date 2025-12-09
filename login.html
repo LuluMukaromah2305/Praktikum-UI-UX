@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Authentication</title>
+</head>
+<body>
+    <h2>Form Login</h2>
+    <form onsubmit="return login()">
+        <label>Username:</label><br>
+        <input type="text" id="username"><br><br>
+        <label>Password:</label><br>
+        <input type="password" id="password"><br><br>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="hasil"></div>
+
+    <script>
+        function login() {
+            let user = document.getElementById("username").value;
+            let pass = document.getElementById("password").value;
+            let userBenar = "Luluulmukaromah";
+            let passBenar = "lulu2305";
+
+            if (user === userBenar && pass === passBenar) {
+                alert("Login berhasil!");
+                document.getElementById("hasil").innerHTML = "<h1>Login Sukses</h1>";
+                return false; 
+            } else {
+                alert("Login gagal! Username atau password salah.");
+                document.getElementById("hasil").innerHTML = "<h1>Login Gagal</h1>";
+                return false;
+            }
+        }
+    </script>
+
+</body>
+</html>

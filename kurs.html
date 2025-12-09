@@ -3,41 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kurs RUpiah</title>
+    <title>Kurs</title>
 </head>
 <body>
-    <h2>Dolar to Rupiah</h2>
-    <h4>Nilai Kurs Rupiah = Rp. 16.000</h4>
-    <label for="dolar">Dolar</label>
-    <input type="number" id="dolar">
-    <br>
-    <span id="hasil"></span>
-    <button type="button" onclick="hitung_dolar()">Hitung</button>
-
-    <hr>
-    <br>
-
-    <h2>Rupiah to Dolar</h2>
-    <label for="rupiah">Rupiah</label>
-    <input type="number" id="rupiah">
-    <br>
-    <span id="hasil2"></span>
-    <button type="button" onclick="hitung_rupiah()">Hitung</button>
+    <form style="background-color: pink;">
+        <fieldset>
+            <legend>Kurs Rupiah ke Mata Uang Asing</legend>
+                <table>
+                    <thead>
+                        <th>Masukan Nilai</th>
+                        <th>Valas</th>
+                        <th>Nilai Rupiah</th>
+                    </thead>
+                    <tbody>
+                        <td><input type="number" id="uang"></td>
+                            <td>
+                                <select id="pilih">
+                                    <option>Pilih</option>
+                                    <option value="usd">Dolar US</option>
+                                    <option value="sd">Dolar Singapore</option>
+                                    <option value="rm">Ringgit Malaysia</option>
+                                    <option value="yen">Yen Jepang</option>
+                                    <option value="eu">Euro</option>
+                                    <option value="riyal">Riyal Saudi Arabia</option>
+                                </select>
+                            </td>
+                            <td><input type="number" id="konversi"></td>
+                    </tbody>
+                </table>
+        </fieldset>
+    </form>
 
     <script>
-        function hitung_dolar() {
-            let rp = 16000;
-            let d = document.getElementById("dolar").value;
-            let h = d*rp;
-            document.getElementById("hasil").innerHTML = "Hasil = Rp. " + h;
-        }
+        let pilih = document.getElementById("pilih");
+        pilih.onchange = function() {
+            let uang = document.getElementById("uang").value;
 
-        function hitung_rupiah() {
-            let rp2 = document.getElementById("rupiah").value;
-            let h = rp2 * (1/16000);
-            document.getElementById("hasil2").innerHTML = "Dolar = $ " + h.toFixed(2);
+            if (pilih.value == "usd") {
+                document.getElementById("konversi").value = uang * 9915;
+            } else if (pilih.value == "sd"){
+                document.getElementById("konversi").value = uang * 13472;
+            } else if (pilih.value == "rm"){
+                document.getElementById("konversi").value = uang * 874;
+            } else if (pilih.value == "yen"){
+                document.getElementById("konversi").value = uang * 120;
+            } else if (pilih.value == "eu"){
+                document.getElementById("konversi").value = uang * 15888;
+            } else if (pilih.value == "riyal"){
+                document.getElementById("konversi").value = uang * 3592;
+            } else {
+                document.getElementById("konversi").value = "Anda Tidak Memilih Apapun"
+            }
+
         }
     </script>
-
 </body>
 </html>
